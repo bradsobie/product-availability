@@ -10,10 +10,24 @@ import {
 import SearchIcon from '@material-ui/icons/Search';
 import PlaceIcon from '@material-ui/icons/Place';
 import PlacesAutocomplete from 'react-places-autocomplete';
+import styled from 'styled-components';
+
+const Card = styled(Paper)`
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  backgroundColor: white;
+  zIndex: 1;
+`;
+
+const Container = styled.div`
+  position: relative;
+`;
 
 const StoreResults = ({ suggestions, getInputProps, getSuggestionItemProps }) => {
   return (
-    <div style={{ position: 'relative' }}>
+    <Container>
       <TextField
         {...getInputProps()}
         fullWidth
@@ -24,33 +38,25 @@ const StoreResults = ({ suggestions, getInputProps, getSuggestionItemProps }) =>
           style: { backgroundColor: '#fff' }
         }}
       />
-      {suggestions.length > 0 && <Paper style={{
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          backgroundColor: 'white',
-          zIndex: 1
-        }}>
-        <List component="nav">
-          {suggestions.map(suggestion => {
-            return (
+      {suggestions.length > 0 &&
+        <Card>
+          <List component="nav">
+            {suggestions.map(suggestion => 
               <ListItem
                 divider
                 button
-                key={suggestion.placeId}
                 {...getSuggestionItemProps(suggestion)}
-              >
+                key={suggestion.placeId}>
                 <ListItemIcon>
                   <PlaceIcon />
                 </ListItemIcon>
                 <ListItemText primary={suggestion.description} />
               </ListItem>
-            );
-          })}
-        </List>
-      </Paper>}
-    </div>
+            )}
+          </List>
+        </Card>
+      }
+    </Container>
   );
 }
 

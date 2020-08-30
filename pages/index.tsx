@@ -99,7 +99,10 @@ const Search = () => {
       <title>Product Availability</title>
       <link rel="icon" href="/favicon.svg" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhWfPD2n4uuD_cHbASZJQncDY1RQOBKpM&callback=initMap&libraries=places" async defer></script>
+      <script dangerouslySetInnerHTML={{ __html: `
+        window.initMap = function(){}
+      `}} />
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhWfPD2n4uuD_cHbASZJQncDY1RQOBKpM&callback=initMap&libraries=places"></script>
     </Head>
 
     <GlobalStyle />
@@ -118,7 +121,7 @@ const Search = () => {
       />
 
       {inputText === '' &&
-        <div style={{ marginTop: '40px' }}>
+        <Box mt={5}>
           {fetchingProducts && <CircularProgress size={50} />}
           {selectedPlace && !fetchingProducts &&
             <Card>
@@ -134,7 +137,7 @@ const Search = () => {
               {products.length > 0 && <ProductList products={products} onProductChange={updateLocalProduct} />}
             </Card>
           }
-        </div>
+        </Box>
       }
     </Container>
   </div>
