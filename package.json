@@ -1,0 +1,28 @@
+{
+  "name": "product-availability",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:static": "next build && next export",
+    "start": "next start",
+    "bd": "npm run build:static && firebase deploy"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.9.7",
+    "@material-ui/icons": "^4.9.1",
+    "firebase": "^7.12.0",
+    "moment": "^2.24.0",
+    "next": "9.3.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-places-autocomplete": "^7.2.1",
+    "use-position": "0.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.31",
+    "@types/react": "^16.9.25",
+    "typescript": "^3.8.3"
+  }
+}
