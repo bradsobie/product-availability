@@ -23,6 +23,7 @@ export const ProductAdd = ({ onAddClick, showNoAvailabilityMessage }) => {
   const classes = useStyles();
   const defaultAddFormState = { availability: '', name: '' };
   const [addForm, setAddForm] = useState(defaultAddFormState);
+  const resetForm = () => setAddForm(defaultAddFormState);
 
   return (
     <Box margin={2} marginTop={0}>
@@ -62,7 +63,7 @@ export const ProductAdd = ({ onAddClick, showNoAvailabilityMessage }) => {
           </Select>
         </FormControl>
 
-        <IconButton disabled={!addForm.availability || !addForm.name} onClick={onAddClick}>
+        <IconButton disabled={!addForm.availability || !addForm.name} onClick={() => onAddClick(addForm, resetForm)}>
           <AddIcon />
         </IconButton>
       </Box>

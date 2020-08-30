@@ -33,9 +33,7 @@ function createProductListData(productsQuery) {
 const productService = new ProductService(firestore, globalFirebase);
 
 const Search = () => {
-  const defaultAddFormState = { availability: '', name: '' };
   const [products, setProducts] = useState([]);
-  const [addForm, setAddForm] = useState(defaultAddFormState);
   const [fetchingProducts, setFetchingProducts] = useState(false);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [inputText, setInputText] = useState('');
@@ -80,13 +78,13 @@ const Search = () => {
     })
   }
 
-  async function createProduct() {
+  async function createProduct(addForm, resetForm) {
     await productService.create({
       ...addForm,
       last_updated: getFirestoreTimestamp(globalFirebase),
       google_places_id: selectedPlace.placeId
     });
-    setAddForm(defaultAddFormState);
+    resetForm();
     setFetchingProducts(true);
     const productsQuery = await productService.getByPlaceId(selectedPlace.placeId);
     setProducts(createProductListData(productsQuery));
