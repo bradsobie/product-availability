@@ -104,6 +104,7 @@ const Search = () => {
       <style dangerouslySetInnerHTML={{__html: `
         body {
           font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+          background-color: #f2f2f2;
         }
       `}} />
     </Head>
@@ -111,7 +112,7 @@ const Search = () => {
     <Container maxWidth="sm">
       <Box display="flex" alignItems="center">
         <img src="/toilet_paper_dark.svg" height="35px" style={{ marginRight: '16px' }} />
-        <h1>Product Availability</h1>
+        <h1 style={{ fontWeight: 300 }}>Product Availability</h1>
       </Box>
 
       <SearchByStore
@@ -128,7 +129,7 @@ const Search = () => {
             <Card>
               {selectedPlace && selectedPlace.address &&
                 <Box display="flex" alignItems="center" marginLeft={2} marginRight={2}>
-                  <PlaceIcon/> <h3>{selectedPlace.address}</h3>
+                  <PlaceIcon/> <h3 style={{ marginLeft: '8px', fontWeight: 400 }}>{selectedPlace.address}</h3>
                 </Box>
               }
               <ProductAdd

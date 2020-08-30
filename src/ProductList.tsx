@@ -16,30 +16,37 @@ export const ProductList = ({ products, onProductChange }) => {
     <List>
       {products.map(product => (
         <ListItem key={product.id} divider>
-          <ListItemText primary={product.name} secondary={`Last updated: ${moment(product.last_updated.toDate()).format('MMMM Do YYYY, h:mm:ss a')}`} />
-          <Select
-            value={product.availability}                  
-            onChange={(event) => {
-              const changes = { availability: event.target.value };
-              onProductChange(product.id, changes);
-            }}
+          <Box
+            display="flex"
+            flexDirection={['column', 'row']}
+            justifyContent={['flex-start', 'space-between']}
+            width="100%"
           >
-            <MenuItem value="high">
-              <Box display="flex" alignItems="center">
-                <FiberManualRecordIcon style={{ marginRight: '8px', fill: availabilityColors.high }} /> Lots available
-              </Box>
-            </MenuItem>
-            <MenuItem value="medium">
-              <Box display="flex" alignItems="center">
-                <FiberManualRecordIcon style={{ marginRight: '8px', fill: availabilityColors.medium }} /> Running low
-              </Box>
-            </MenuItem>
-            <MenuItem value="low">
-              <Box display="flex" alignItems="center">
-                <FiberManualRecordIcon style={{ marginRight: '8px', fill: availabilityColors.low }} /> Out of stock
-              </Box>
-            </MenuItem>
-          </Select>
+            <ListItemText primary={product.name} secondary={`Last updated: ${moment(product.last_updated.toDate()).format('MMMM Do YYYY, h:mm:ss a')}`} />
+            <Select
+              value={product.availability}                  
+              onChange={(event) => {
+                const changes = { availability: event.target.value };
+                onProductChange(product.id, changes);
+              }}
+            >
+              <MenuItem value="high">
+                <Box display="flex" alignItems="center">
+                  <FiberManualRecordIcon style={{ marginRight: '8px', fill: availabilityColors.high }} /> Lots available
+                </Box>
+              </MenuItem>
+              <MenuItem value="medium">
+                <Box display="flex" alignItems="center">
+                  <FiberManualRecordIcon style={{ marginRight: '8px', fill: availabilityColors.medium }} /> Running low
+                </Box>
+              </MenuItem>
+              <MenuItem value="low">
+                <Box display="flex" alignItems="center">
+                  <FiberManualRecordIcon style={{ marginRight: '8px', fill: availabilityColors.low }} /> Out of stock
+                </Box>
+              </MenuItem>
+            </Select>
+          </Box>
         </ListItem>
       ))}
     </List>

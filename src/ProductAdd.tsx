@@ -26,7 +26,7 @@ export const ProductAdd = ({ onAddClick, showNoAvailabilityMessage }) => {
 
   return (
     <Box margin={2} marginTop={0}>
-      <Box display="flex" alignItems="flex-end">
+      <Box display="flex" alignItems="flex-end" width="100%">
         <TextField
           label="Product category"
           value={addForm.name}

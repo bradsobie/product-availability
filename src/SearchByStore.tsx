@@ -22,6 +22,7 @@ const StoreResults = ({ suggestions, getInputProps, getSuggestionItemProps }) =>
         variant="outlined"
         InputProps={{
           startAdornment: <InputAdornment position="start"><SearchIcon /></InputAdornment>,
+          style: { backgroundColor: '#fff' }
         }}
       />
       {suggestions.length > 0 && <Paper style={{
