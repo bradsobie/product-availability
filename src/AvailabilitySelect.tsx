@@ -10,8 +10,10 @@ export const availabilityColors = {
 };
 
 export const StatusIcon = styled(FiberManualRecordIcon)`
-  margin-right: 8px;
-  fill: ${({ $fillColor }) => $fillColor};
+  && {
+    margin-right: 8px;
+    fill: ${({ $fillColor }) => $fillColor};
+  }
 `;
 
 const SelectLabel = ({ fillColor, label }) => (

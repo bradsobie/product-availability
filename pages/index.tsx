@@ -19,6 +19,7 @@ import { ProductService } from '../src/ProductService';
 import { ProductList } from '../src/ProductList';
 import { ProductAdd } from '../src/ProductAdd';
 import { getFirestoreTimestamp } from '../src/utils';
+import { GlobalStyle } from '../src/GlobalStyles';
 
 const firestore = firebase.firestore();
 
@@ -99,13 +100,9 @@ const Search = () => {
       <link rel="icon" href="/favicon.svg" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhWfPD2n4uuD_cHbASZJQncDY1RQOBKpM&callback=initMap&libraries=places" async defer></script>
-      <style dangerouslySetInnerHTML={{__html: `
-        body {
-          font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-          background-color: #f2f2f2;
-        }
-      `}} />
     </Head>
+
+    <GlobalStyle />
 
     <Container maxWidth="sm">
       <Box display="flex" alignItems="center">
@@ -116,7 +113,7 @@ const Search = () => {
       <SearchByStore
         inputText={inputText}
         location={latLng}
-        onChange={(text) =>  setInputText(text)}
+        onChange={text => setInputText(text)}
         onSelect={onStoreSelected}
       />
 

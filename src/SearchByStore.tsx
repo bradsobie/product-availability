@@ -61,6 +61,7 @@ const SearchByStore = ({ inputText, onChange, onSelect, location }) => {
       onChange={onChange}
       onSelect={onSelect}
       googleCallbackName="initMap"
+      debounce={300}
       searchOptions={{
         radius: 80000,
         location: location,
