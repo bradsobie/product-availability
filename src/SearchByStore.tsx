@@ -9,7 +9,6 @@ import {
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import PlaceIcon from '@material-ui/icons/Place';
-
 import PlacesAutocomplete from 'react-places-autocomplete';
 
 const StoreResults = ({ suggestions, getInputProps, getSuggestionItemProps }) => {

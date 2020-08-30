@@ -78,17 +78,17 @@ const Search = () => {
     })
   }
 
-  async function createProduct(addForm, resetForm) {
+  async function createProduct(addForm, onComplete) {
     await productService.create({
       ...addForm,
       last_updated: getFirestoreTimestamp(globalFirebase),
       google_places_id: selectedPlace.placeId
     });
-    resetForm();
     setFetchingProducts(true);
     const productsQuery = await productService.getByPlaceId(selectedPlace.placeId);
     setProducts(createProductListData(productsQuery));
     setFetchingProducts(false);
+    onComplete();
   }
 
   const latLng = typeof window !== 'undefined' && (window as any)?.google?.maps ? new (window as any).google.maps.LatLng(latitude, longitude) : undefined;
