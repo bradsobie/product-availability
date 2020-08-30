@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Logo = styled.img`
   height: 35px;
-  marginRight: 16px;
+  margin-right: 16px;
 `;
 
 const Title = styled.h1`
