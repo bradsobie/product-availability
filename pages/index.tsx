@@ -7,6 +7,7 @@ import firebase from '../src/firebase';
 import SearchByStore from '../src/SearchByStore';
 import { Header } from '../src/Header';
 import { PlaceCard } from '../src/PlaceCard';
+import { Footer } from '../src/Footer';
 
 const Search = () => {
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -45,6 +46,7 @@ const Search = () => {
         onSelect={onStoreSelected}
       />
       {inputText === '' && <PlaceCard place={selectedPlace} />}
+      <Footer />
     </Container>
   </div>
 }
