@@ -19,7 +19,10 @@ export const ProductList = ({ products, onProductChange }) => {
             justifyContent={['flex-start', 'space-between']}
             width="100%"
           >
-            <ListItemText primary={product.name} secondary={`Last updated: ${moment(product.last_updated.toDate()).format('MMMM Do YYYY, h:mm:ss a')}`} />
+            <ListItemText
+              primary={product.name}
+              secondary={`Last updated: ${moment(product.last_updated.toDate()).format('MMMM Do YYYY, h:mm:ss a')}`}
+            />
             <AvailabilitySelect
               selectProps={{
                 value: product.availability,

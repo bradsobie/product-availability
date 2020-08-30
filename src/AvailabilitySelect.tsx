@@ -2,7 +2,12 @@ import React from 'react';
 import { MenuItem, Select, Box } from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import styled from 'styled-components';
-import { availabilityColors } from './utils';
+
+export const availabilityColors = {
+  high: '#25e638',
+  medium: '#e6b825',
+  low: '#c51a1a',
+};
 
 export const StatusIcon = styled(FiberManualRecordIcon)`
   margin-right: 8px;
